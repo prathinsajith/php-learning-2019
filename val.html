@@ -1,0 +1,88 @@
+<html>
+<head>
+</head>
+<body>
+<form name= "t" onsubmit="return val(this)">
+<table>
+
+<tr><td>name</td><td><input type ="text" name="t1" value=""/></td></tr>
+<tr><td>phone</td><td><input type ="text" name="t2" value=""/></td></tr>
+<tr><td>email</td><td><input type ="text" name="t3" value=""/></td></tr>
+<tr><td><input type ="submit" name="submit" value="submit"/></td></tr>
+</table>
+</form>
+<script>
+function val(t)
+{//alert("hgj");
+var alpha =/^[a-zA-Z ]+$/;
+if (t.t1.value=="")
+{
+alert ("this field is required");
+t.t1.focus();
+return false;
+}
+
+else if(!(t.t1.value.match(alpha)))
+{
+alert("please enter the valid name ");
+t.t1.value="";
+t.t1.focus();
+return false;
+}
+if(t.t2.value=="")
+{
+alert("fill the field");
+t.t2.focus();
+return false;
+}
+else if(isNaN(t.t2.value))
+{
+alert("please enter the the number ");
+t.t2.value="";
+t.t2.focus();
+return false;
+}
+else if((t.t2.value.length!=10))
+{
+alert("please enter 10 number ");
+t.t2.value="";
+t.t2.focus();
+return false;
+}
+if(t.t3.value=="")
+{
+alert("field is required");
+
+t.t3.focus();
+return false;
+
+}
+else
+{
+var x=t.t3.value;
+var len=x.length;
+var atpos=x.indexOf("@");
+var dotpos=x.lastIndexOf(".");
+var emstr=/^[a-z0-9._ ]+$/;
+var domain=x.substr(0,atpos-1);
+
+if(atpos==0||atpos+2>dotpos||dotpos+2>=len)
+{
+alert("invalid email");
+t.t3.value="";
+t.t3.focus;
+return false;
+}
+else if(! domain.match(emstr))
+{
+alert("invalid email");
+t.t3.value="";
+t.t3.focus();
+return false;
+}
+}
+}
+
+</script>
+</body>
+</html>

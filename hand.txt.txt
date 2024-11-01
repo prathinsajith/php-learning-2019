@@ -1,0 +1,4 @@
+<?php
+$csrs=array(array("volvo",22,15)array("bmw",22,11)arrary("tata",23,9));
+echo $cars[1][2];
+?>

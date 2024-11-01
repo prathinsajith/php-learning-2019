@@ -1,0 +1,8 @@
+<?php
+$cars = array("Volvo", "BMW", "Tata");
+echo $cars[0];
+echo count($cars);
+ $s= sort($cars);
+echo $s;
+
+?>

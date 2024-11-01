@@ -1,0 +1,5 @@
+<?php
+ $sr="apple";
+ echo strtoupper("sr");
+
+?>

@@ -1,0 +1,28 @@
+<html>
+<body>
+
+<?php
+
+include"../JULY 10/connection.php";
+$s=$_GET['q'];// var_dump($s);die();
+$a=mysql_query("select * from district where state_id='$s'");
+?>
+
+
+<select name="us2" Onchange="">
+<?php
+while($b=mysql_fetch_array($a))
+
+{
+	//var_dump($b);die();
+?>
+	
+
+
+<option value="<?php echo $b[0];?>"> <?php echo $b[2]; ?> </option>
+<?php
+}
+?>
+</select>	
+</body>
+</html>

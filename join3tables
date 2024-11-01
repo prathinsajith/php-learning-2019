@@ -1,0 +1,11 @@
+SELECT * FROM tblmember inner join sbaccount ON tblmember.mcode = sbaccount.mcode inner join sbtransfer ON sbaccount.accountno = sbtransfer.accountno
+
+
+
+
+SELECT *
+FROM tblmember
+INNER JOIN sbaccount ON tblmember.mcode = sbaccount.mcode
+INNER JOIN sbtransfer ON sbaccount.accountno = sbtransfer.accountno
+WHERE MONTH( tdate ) = MONTH( CURDATE( ) )
+AND YEAR( tdate ) = YEAR( CURDATE( ) )

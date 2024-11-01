@@ -1,5 +1,6 @@
 <?php 
 ob_start();
+session_start();
 $con=mysql_connect("localhost","root","");
 $a=mysql_select_db("student",$con);
 ?>
@@ -18,22 +19,34 @@ $a=mysql_select_db("student",$con);
 
 </body>
 </html>
-
 <?php 
 if(isset($_POST['sub']))
 {
 	
-	$u=$_POST['f1']
+	$u=$_POST['f1'];
 	$p=$_POST['f2'];
- $lg=mysql_query("select * from signup_tbl where username='$u' and psw='$p'");
- if($r-mysql_fetch_array($lg))
+ $lg=mysql_query("select * from login_tbl where username='$u' and psw='$p'");
+ if($r=mysql_fetch_array($lg))
+ {    
+
+ if($r['role']=='student')
  {
-	 header(location:"home.php");
+	$_SESSION['student'] =$u;
+	header("location:student.php");
 	 
  }
+ else if ($r['role']=='staff')
+ {
+	$_SESSION['staff'] =$u;
+	header("location:staff.php");
+	  
+ }
+ }
 else
-{
-	echo "invalid username/password";
-}	
+ {
+	
+	 echo "invalid";
+ }
+
 }
 ?>

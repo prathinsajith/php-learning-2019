@@ -1,0 +1,77 @@
+<?php
+$con=mysql_connect("localhost","root","");
+$db=mysql_select_db("student",$con);
+
+$country_id = (int) $_GET['id'];
+$sql = "SELECT * FROM states WHERE country_id=$country_id";
+$result = mysqli_query($connection, $sql);
+	echo "<option disabled selected>Please Select State</option>";
+while($row = mysqli_fetch_assoc($result)){
+	echo "<option value='" . $row['id'] . "'>" . $row['name'] ."</option>";
+}
+
+
+
+?>
+<html>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+<body>
+<form action=""> 
+<select name="name" id="country-select" onchange="getStatesSelectList(this.value)">
+<?php
+$y=mysql_query("select cntr from countries");
+while($z=mysql_fetch_array($y))
+{
+?>
+<option value="<?php echo $z[1];?>"><?php echo $z[1];?></option>
+<?php
+}
+?>
+</select>
+<select name="name" id="state-select" onchange="showdetails(this.value)">
+<?php
+$y=mysql_query("select sname from state");
+while($z=mysql_fetch_array($y))
+{
+?>
+<option value="<?php echo $z[2];?>"><?php echo $z[2];?></option>
+<?php
+}
+?>
+</select>
+<select name="name" id="city-select" onchange="showdetails(this.value)">
+<?php
+$y=mysql_query("select city from cities");
+while($z=mysql_fetch_array($y))
+{
+?>
+<option value="<?php echo $z[2];?>"><?php echo $z[2];?></option>
+<?php
+}
+?>
+</select>
+</form>
+<div id="txtHint">
+
+<script>
+
+function getStatesSelectList(){
+	var country_select = document.getElementById("country-select");
+	
+	var country_id = country_select.options[country_select.selectedIndex].value;
+	console.log('CountryId : ' + country_id);
+}
+
+
+</script>
+
+
+

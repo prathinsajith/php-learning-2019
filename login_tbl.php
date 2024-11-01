@@ -23,12 +23,12 @@ $a=mysql_select_db("student",$con);
 if(isset($_POST['sub']))
 {
 	
-	$u=$_POST['f1']
+	$u=$_POST['f1'];
 	$p=$_POST['f2'];
  $lg=mysql_query("select * from signup_tbl where username='$u' and psw='$p'");
- if($r-mysql_fetch_array($lg))
- {
-	 header(location:"home.php");
+ if($r=mysql_fetch_array($lg))
+ {    
+	 header("location:home.php");
 	 
  }
 else

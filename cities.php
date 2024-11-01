@@ -8,7 +8,7 @@ $db=mysql_select_db("student",$con);
 <body>
 
 <?php
-$ss=$_GET['qs']; 
+$ss=$_GET['qs'];
 
 $a=mysql_query("select * from cities where sid='$ss'");
 ?>

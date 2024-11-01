@@ -1,9 +1,12 @@
 <?php
 $con=mysql_connect("localhost","root","");
-$db=mysql_select_db("keralamatri",$con);
+$db=mysql_select_db("matrimony",$con);
 ?>
 <HTML>
 <HEAD>
+<style>
+
+</style>
 <SCRIPT>
 
 </SCRIPT>
@@ -58,7 +61,7 @@ Caste / Division:<div id="dd">
 Country living in: <select id="country-select" onchange="getStatesSelectList2(this.value)">
 	<option disabled selected>Please Select Country</option>
 	<?php
-		$sql =mysql_query("SELECT * FROM cntry");
+		$sql =mysql_query("SELECT * FROM country");
 		
 		while($row=mysql_fetch_array($sql)){
 	?>
@@ -71,7 +74,7 @@ Email<input type="email"  name="m10" value=""/><br>
 password<input type="password"  name="m11" value=""/><br>
 </div>
 <script>
-function getStatesSelectList(sq)
+function getStatesSelectList(st)
 { 
 	var x=new XMLHttpRequest();
 	x.onreadystatechange=function()
@@ -81,7 +84,7 @@ function getStatesSelectList(sq)
 			document.getElementById('dd').innerHTML=this.responseText;
 		}
 	};
-	x.open("GET","cast.php?qq="+sq,true);
+	x.open("GET","caste.php?q="+st,true);
 	x.send();
 }
 </script>

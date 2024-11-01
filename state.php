@@ -7,24 +7,23 @@ $db=mysql_select_db("student",$con);
 <html>
 <body>
 
+<?php
+$s=$_GET['q'];
+$a=mysql_query("select * from states where country_id=='$s'");
+?>
+
 <form action="">
 <select name="us2" onchange="get(this.value)">
 
 <?php
-$s=$_GET['q'];
-$a=mysql_query("select * from state where id='$s'");
-while($bl=mysql_fetch_array($a))
-	
-
-
-
+while($b=mysql_fetch_array($a))
 
 { 
 	?>
 	
 
 
-<option value="<?php echo $bl[0];?>"> <?php echo $bl[2]; ?> </option>
+<option value="<?php echo $b[0];?>"> <?php echo $b[2]; ?> </option>
   
 <?php
 }

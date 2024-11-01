@@ -1,0 +1,53 @@
+<html>
+<head>
+
+<script src="jquery.min.js"></script>
+<style>
+#h1
+{
+height:20px;
+width:30px;
+padding:10px;
+margin:3px;
+border:1px solid;
+backgroud-color:red;
+}
+#h2
+{
+height:20px;
+width:30px;
+padding:10px;
+margin:3px;
+border:1px solid;
+backgroud-color:blue;
+}#h3
+{
+height:20px;
+width:30px;
+padding:10px;
+margin:3px;
+border:1px solid;
+backgroud-color:green;
+}
+</style>
+<script>
+$(document).ready(function(){
+  $("#h1").click(function(){
+   $("#h1").animate({height:72px},500);
+   });
+     $("#h2").click(function(){
+	  $("body").css("backgroud-color","blue");
+  });
+    $("#h3").click(function(){
+	  $("body").css("backgroud-color","green");
+});
+});
+</script>
+</head>
+<body>
+<div id="h1">red</div>
+<div id="h2">blue</div>
+<div id="h3">green</div>
+</body>
+
+</html>
